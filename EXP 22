@@ -1,0 +1,20 @@
+sentence = input("Enter sentence: ")
+
+words = sentence.split()
+
+pronouns = ["he", "she", "it", "they", "him", "her", "them"]
+
+last_noun = None
+
+for word in words:
+
+    clean = word.strip(".,!?")
+
+    if clean.lower() in pronouns:
+
+        print(clean, "refers to", last_noun)
+
+    elif clean.lower() not in ["is", "am", "are", "was", "were",
+                               "the", "a", "an", "and"]:
+
+        last_noun = clean
