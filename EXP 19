@@ -1,0 +1,41 @@
+dictionary = {
+    "bank": [
+        "financial money account loan",
+        "river water shore"
+    ],
+
+    "bat": [
+        "animal flying wings",
+        "cricket baseball sports"
+    ]
+}
+
+
+def lesk(word, sentence):
+
+    if word not in dictionary:
+        return "Unknown"
+
+    sentence_words = set(sentence.lower().split())
+
+    best_sense = None
+    best_score = 0
+
+    for sense in dictionary[word]:
+
+        sense_words = set(sense.split())
+
+        score = len(sentence_words.intersection(sense_words))
+
+        if score > best_score:
+            best_score = score
+            best_sense = sense
+
+    return best_sense
+
+
+word = input("Enter ambiguous word: ")
+sentence = input("Enter sentence: ")
+
+print("Selected meaning:")
+print(lesk(word, sentence))
