@@ -1,0 +1,25 @@
+dialog = input("Enter dialog: ").lower()
+
+if dialog.startswith(("hi", "hello", "hey")):
+    act = "GREETING"
+
+elif "?" in dialog:
+    act = "QUESTION"
+
+elif dialog.startswith(("please", "could you", "can you")):
+    act = "REQUEST"
+
+elif "thank" in dialog:
+    act = "THANKING"
+
+elif dialog.startswith(("bye", "goodbye")):
+    act = "GOODBYE"
+
+elif "yes" in dialog or "okay" in dialog:
+    act = "ACCEPTANCE"
+
+else:
+    act = "STATEMENT"
+
+
+print("Dialog Act:", act)
