@@ -1,0 +1,19 @@
+def stem(word):
+    suffixes = [
+        "ingly", "edly", "ing", "ed",
+        "ness", "ment", "able", "ful",
+        "less", "ly", "er", "est", "s"
+    ]
+
+    for suffix in suffixes:
+        if word.endswith(suffix) and len(word) > len(suffix) + 2:
+            return word[:-len(suffix)]
+
+    return word
+
+
+words = ["playing", "played", "happiness",
+         "carefully", "runner", "cats"]
+
+for word in words:
+    print(word, "->", stem(word))
