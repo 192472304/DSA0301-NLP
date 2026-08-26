@@ -1,0 +1,40 @@
+sentence = input("Enter sentence: ")
+
+words = sentence.split()
+
+determiners = ["the", "a", "an"]
+
+noun_phrases = []
+
+current = []
+
+for word in words:
+
+    if word.lower() in determiners:
+
+        if current:
+            noun_phrases.append(current)
+            current = []
+
+        current.append(word)
+
+    else:
+        current.append(word)
+
+if current:
+    noun_phrases.append(current)
+
+
+print("Noun Phrases:")
+
+for phrase in noun_phrases:
+
+    print("Phrase:", " ".join(phrase))
+
+    nouns = []
+
+    for word in phrase:
+        if word.lower() not in determiners:
+            nouns.append(word)
+
+    print("Meaning:", " ".join(nouns))
