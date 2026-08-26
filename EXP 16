@@ -1,0 +1,20 @@
+text = input("Enter text: ")
+
+words = text.split()
+
+known_places = ["Chennai", "Hyderabad", "Delhi", "Mumbai"]
+known_people = ["Ravi", "John", "Priya", "Anu"]
+known_organizations = ["Google", "Microsoft", "Amazon"]
+
+for word in words:
+
+    clean = word.strip(".,!?")
+
+    if clean in known_people:
+        print(clean, "-> PERSON")
+
+    elif clean in known_places:
+        print(clean, "-> LOCATION")
+
+    elif clean in known_organizations:
+        print(clean, "-> ORGANIZATION")
