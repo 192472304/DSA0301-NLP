@@ -1,0 +1,38 @@
+import re
+
+text = input("Enter a paragraph: ")
+
+sentences = re.split(r'[.!?]+', text)
+
+sentences = [s.strip() for s in sentences if s.strip()]
+
+words = text.lower().split()
+
+repeated_words = {}
+
+for word in words:
+
+    word = word.strip(".,!?")
+
+    if len(word) > 3:
+
+        repeated_words[word] = repeated_words.get(word, 0) + 1
+
+
+score = 0
+
+for word, count in repeated_words.items():
+
+    if count > 1:
+        score += 1
+
+
+print("Number of sentences:", len(sentences))
+print("Repeated meaningful words:", score)
+
+if score >= 2:
+    print("Text coherence: Good")
+elif score == 1:
+    print("Text coherence: Moderate")
+else:
+    print("Text coherence: Low")
