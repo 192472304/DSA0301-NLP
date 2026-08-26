@@ -1,0 +1,26 @@
+responses = {
+    "hello": "Hello! How can I help you?",
+    "ai": "Artificial Intelligence enables machines to perform intelligent tasks.",
+    "python": "Python is a popular programming language used in many applications.",
+    "computer": "A computer is an electronic device that processes data."
+}
+
+
+prompt = input("Enter your prompt: ").lower()
+
+found = False
+
+for key in responses:
+
+    if key in prompt:
+
+        print("Generated Text:")
+        print(responses[key])
+
+        found = True
+        break
+
+
+if not found:
+    print("Generated Text:")
+    print("This is a sample response generated from the given prompt.")
